@@ -5,10 +5,13 @@ class Dog:
     ]
 
     def __init__(self, name="Unknown", breed="Mutt"):
-        self._name = "Unknown"  # Initialize to a default value
-        self.name = name  # Use the setter to validate
-        self._breed = "Mutt"  # Initialize to a default value
-        self.breed = breed  # Use the setter to validate
+        # Validate name first
+        self.name = name  # Use the setter to validate name
+        # Only set breed if name is valid
+        if isinstance(self._name, str) and 1 <= len(self._name) <= 25:
+            self.breed = breed  # Use the setter to validate breed
+        else:
+            self.breed = "Mutt"  # Default value if name is invalid
 
     @property
     def name(self):
@@ -39,4 +42,5 @@ class Dog:
 
     def sit(self):
         print("The dog is sitting.")
+
 
