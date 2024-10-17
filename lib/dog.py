@@ -5,10 +5,9 @@ class Dog:
     ]
 
     def __init__(self, name="Unknown", breed="Mutt"):
-        # Set name first to ensure validation occurs
         self.name = name
-        # Then set breed
-        self.breed = breed
+        if self.name != "Unknown":
+            self.breed = breed
 
     @property
     def name(self):
