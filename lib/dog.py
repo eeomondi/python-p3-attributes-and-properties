@@ -5,8 +5,10 @@ class Dog:
     ]
 
     def __init__(self, name="Unknown", breed="Mutt"):
-        self.name = name  # This will trigger the name setter
-        self.breed = breed  # This will trigger the breed setter
+        # Set name first to ensure validation occurs
+        self.name = name
+        # Then set breed
+        self.breed = breed
 
     @property
     def name(self):
@@ -18,7 +20,7 @@ class Dog:
             self._name = value
         else:
             print("Name must be string between 1 and 25 characters.")
-            self._name = "Unknown"  # Default to "Unknown" if invalid
+            self._name = "Unknown"  # Default value if invalid
 
     @property
     def breed(self):
@@ -30,7 +32,7 @@ class Dog:
             self._breed = value
         else:
             print("Breed must be in list of approved breeds.")
-            self._breed = "Mutt"  # Default to "Mutt" if invalid
+            self._breed = "Mutt"  # Default value if invalid
 
     def bark(self):
         print("Woof!")
