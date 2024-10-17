@@ -5,9 +5,10 @@ class Dog:
     ]
 
     def __init__(self, name="Unknown", breed="Mutt"):
-        self.name = name
-        if self.name != "Unknown":
-            self.breed = breed
+        self._name = "Unknown"  # Initialize to a default value
+        self.name = name  # Use the setter to validate
+        self._breed = "Mutt"  # Initialize to a default value
+        self.breed = breed  # Use the setter to validate
 
     @property
     def name(self):
@@ -38,3 +39,4 @@ class Dog:
 
     def sit(self):
         print("The dog is sitting.")
+
